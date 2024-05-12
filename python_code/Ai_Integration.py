@@ -1,4 +1,16 @@
 # -*- coding: utf-8 -*-
+'''
+Main func: ai_segmentation(image) - you give the filename and it returns the mask. 
+
+Mask generation returns a list over masks, where each mask is a dictionary containing various data about the mask. These keys are:
+* `segmentation` : the mask
+* `area` : the area of the mask in pixels
+* `bbox` : the boundary box of the mask in XYWH format
+* `predicted_iou` : the model's own prediction for the quality of the mask
+* `point_coords` : the sampled input point that generated this mask
+* `stability_score` : an additional measure of mask quality
+* `crop_box` : the crop of the image used to generate this mask in XYWH format
+'''
 """
 Original file is located at
     https://colab.research.google.com/drive/1Jt0oIzkeKn0nODaV1QXfZTPizSbTQE0E
@@ -79,16 +91,6 @@ def generate_masks (image,sam):
     masks = mask_generator.generate(image)
     return masks
 
-"""
-Mask generation returns a list over masks, where each mask is a dictionary containing various data about the mask. These keys are:
-* `segmentation` : the mask
-* `area` : the area of the mask in pixels
-* `bbox` : the boundary box of the mask in XYWH format
-* `predicted_iou` : the model's own prediction for the quality of the mask
-* `point_coords` : the sampled input point that generated this mask
-* `stability_score` : an additional measure of mask quality
-* `crop_box` : the crop of the image used to generate this mask in XYWH format
-"""
 #print(len(masks)) #number of masks
 #print(masks[0].keys())
 
@@ -120,7 +122,7 @@ def ai_segmentation(image): #final function - give the filename
     photo = load_image(image)
     sam = prepare_environment()
     segments = generate_masks(photo,sam)
-    show_masks_overlayed(segments,photo) #optional to view end result    
+    #show_masks_overlayed(segments,photo) #optional to view end result    
     return segments
 
 #ai_segmentation('photo.png')
