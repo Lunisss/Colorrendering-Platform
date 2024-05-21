@@ -1,0 +1,6 @@
+<input type="search" name="search" id="search" placeholder="Search">
+@for (d of data; track d) {
+    <div class="color">
+        <div class="rectangle" style="background-color: rgb({{d.color}});"></div>{{d.name}}
+    </div>
+}
