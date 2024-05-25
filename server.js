@@ -1,5 +1,4 @@
 const express = require('express');
-//const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const path = require('path');
 const http = require('http');
@@ -19,6 +18,8 @@ app.use('/api', api);
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'dist/colorrendering-platform/browser/index.html'));
 });
+
+
 
 // Start server
 const port = process.env.PORT || 3000;

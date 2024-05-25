@@ -2,9 +2,8 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const postSchema = new Schema({
-    title: String,
-    url: String,
-    desc: String
+    name: String,
+    hex: String
 });
 
-module.exports = mongoose.model('post', postSchema);
+module.exports = mongoose.model('poland', postSchema);

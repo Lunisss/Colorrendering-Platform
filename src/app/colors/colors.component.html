@@ -1,6 +1,21 @@
-<input type="search" name="search" id="search" placeholder="Search">
-@for (d of data; track d) {
-    <div class="color">
-        <div class="rectangle" style="background-color: rgb({{d.color}});"></div>{{d.name}}
+<div class="top">
+    <input type="search" name="search" id="search" placeholder="Search">
+</div>
+
+
+@for (s of section; track s) {
+    <div class="pallete" id="{{s.name}}">
+        <div (click)="toggleVisibility(s)" class="title">{{s.name}}</div>
+        @for (c of s.colors; track c) {
+            <div *ngIf="s.isVisible" class="color">
+                <div 
+                    class="rectangle" 
+                    [ngStyle]="{ 'background-color': c.color }"
+                    draggable="true"
+                    (dragstart)="onDragStart($event, c.color)">
+                </div>
+                {{c.name}}
+            </div>
+        }   
     </div>
 }

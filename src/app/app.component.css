@@ -1,33 +1,33 @@
 /* You can add global styles to this file, and also import other style files */
-main {
-    margin: 0;
-    padding: 0;
+:host {
     display: grid;
-    grid-template-rows: 1.5fr 10.5fr;
+    grid-template-rows: auto 11fr;
     width: 100%;
-    height: 100vh;
+    min-height: 100vh;
+    overflow-y: none;
+    -ms-overflow-style: none;
 }
 
-header {
-    background-color: azure;
-    height: 100%;
+app-navbar {
+    display: block;
 }
 
-.container {
+main {
     display: grid;
     grid-template-columns: 2fr 8fr 2fr;
 }
 
-.left {
-    background-color: beige;
-}
-
 app-colors {
-    background-color: beige;
+    background-color: white;
     text-align: center;
+    overflow-y: none;
+    -ms-overflow-style: none;
 }
 
-.center {
-    background-color: darkgray;
+app-colors::-webkit-scrollbar {
+    display: none;
 }
 
+app-picture {
+    width: 100%;
+}
