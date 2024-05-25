@@ -1,0 +1,67 @@
+:host {
+  padding-top: 5vh;
+  max-height: inherit;
+  background-color: white;
+  
+}
+
+.btn {
+  width: 4vw; 
+}
+
+.btn-group-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;  
+}
+
+.btn-outline-primary {
+  border-color: grey;
+  color: #303030;
+}
+.btn-outline-primary:hover {
+  background-color: grey;
+  color: white;
+}
+.btn-stretched {
+  width: 12vw; 
+  margin-bottom: 1vw; 
+  font-size: 20px;
+}
+.btn-stretched-middle {
+  width: 60px; 
+}
+.btn-stretched-delete {
+  margin-top: 1vw;
+  width: 12vw; 
+  font-size: 20px;
+}
+.btn-half {
+  width: 6vw; 
+  font-size: 20px;
+}
+.btn-half-bottom {
+  margin-top: 1vw;
+  width: 4vw; 
+}
+
+.btn img {
+  width: 2vw; 
+}
+.range-container {
+  flex-direction: column;
+  width: 13vw;
+  display: flex;
+  text-align: center;
+  padding-bottom: 20px; 
+  font-size: 20px;
+}
+
+.btn-group-wrapper-bottom {
+  margin-top: 1vw;
+  width: 100%; 
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
