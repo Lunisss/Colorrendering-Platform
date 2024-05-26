@@ -19,34 +19,40 @@ def zaladuj_obraz(okno, suwak, clear_button):
 
 def magic_wand(event, okno, czulosc, clear_button):
     x, y = event.x, event.y
-    obraz_pil = okno.obraz.copy()  # Utwórz kopię obrazu, aby nie zmieniać oryginalnego obrazu
+    
+    # Użyj oryginalnego obrazu PIL
+    obraz_pil = okno.obraz
+    
+    # Przekonwertuj obraz PIL na obraz NumPy
     obraz_cv2 = cv2.cvtColor(np.array(obraz_pil), cv2.COLOR_RGB2BGR)
-
-    # Utwórz maskę i wypełnij ją zerami
+    
+    # Tworzenie maski
     mask = np.zeros((obraz_cv2.shape[0] + 2, obraz_cv2.shape[1] + 2), np.uint8)
-
-    # Konwertuj punkt nasienia na koordynaty maski
+    
     seed_point = (x, y)
     seed_point_mask = (x + 1, y + 1)  # Dodaj 1, ponieważ maska ma dodatkowy wiersz i kolumnę
 
-    # Zdefiniuj progi różnicy kolorów
+    # definicja progów różnic kolorów
     lo_diff = (czulosc, czulosc, czulosc)
     up_diff = (czulosc, czulosc, czulosc)
 
-    # Wypełnij maskę przy użyciu algorytmu FloodFill
+    #  algorytm FloodFill
     cv2.floodFill(obraz_cv2, mask, seed_point_mask, (255, 255, 255), lo_diff, up_diff, flags=cv2.FLOODFILL_FIXED_RANGE)
 
-    # Znajdź kontury w obszarze wyróżnionym
+    # Znajdywanie konturyów w obszarze wyróżnionym
     contours, _ = cv2.findContours(mask[1:-1, 1:-1], cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
 
-    # Rysuj kontur obszaru zainteresowania na kopii obrazu
+    # Rysuj kontur obszaru zainteresowania na oryginalnym obrazie PIL
     cv2.drawContours(obraz_cv2, contours, -1, (0, 255, 0), 2)  # Zielony kolor
 
+    # Konwertuj obraz z powrotem na format RGB -> PIL
     wynikowy_obraz = Image.fromarray(cv2.cvtColor(obraz_cv2, cv2.COLOR_BGR2RGB))
     wynikowe_foto = ImageTk.PhotoImage(wynikowy_obraz)
 
+    # pokaż zaktualizowany obraz
     okno.create_image(0, 0, image=wynikowe_foto, anchor="nw")
     okno.foto = wynikowe_foto
+
 
 
 def clear_selection(okno, suwak, clear_button):
