@@ -1,4 +1,11 @@
+:host {
+    background-color: #D1D1D1;
+    display: grid;
+    place-items: center;
+    max-height: 90vh;
+}
+
 div {
-    width: 100%;
-    height: 100%;
+    width: 98%;
+    height: 98%;
 }

@@ -1,8 +1,17 @@
+:host {
+    overflow-y: scroll;
+    max-height: inherit;
+}
+
+main {
+    max-height: 80vh;
+}
 .top{
     padding: 1vw;
     position: sticky;
     top: 0;
     z-index: 2;
+    background-color: white;
 }
 
 input {
@@ -27,27 +36,30 @@ input {
     place-items: center;
     font-size: 30px;
     margin-bottom: 1vw;
-
 }
+
+.title:hover {
+    cursor: pointer;
+}
+
 .color {
-    width: 90%;
-    height: 8vh;
-    border: 1px solid black;
-    border-radius: 0.7vw;
-    display: grid;
-    grid-template-columns: 1fr 5fr;
-    place-items: center;
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     background-color: #FEFEFE;
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 1vh;
     font-size: 30px;
+    gap: 0.5vw;
 }
 
 .rectangle {
-    border: 1px, solid black;
-    width: 100%;
-    height: 100%;
+    border: 1px solid black;
+    width: 3vw;
+    height: 3vw;
     border-radius: inherit;
     z-index: 1;
 

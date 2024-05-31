@@ -1,4 +1,17 @@
+:host {
+    height: 100%;
+}
+
 .navbar-brand img {
-    width: 4vw;
+    width: 6%;
     height: auto;
+}
+
+.navbar {
+    padding: 0;
+    height: 100%;
+}
+
+.btn {
+    text-align: right;
 }

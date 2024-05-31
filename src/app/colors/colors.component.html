@@ -2,20 +2,20 @@
     <input type="search" name="search" id="search" placeholder="Search">
 </div>
 
+<main>
+    <div *ngIf="colorsData.length > 0">
+        <div *ngFor="let palette of colorsData" class="palette">
+          <div (click)="toggleVisibility(palette)" class="title">{{palette.name}}</div>
+          <div class="color" *ngIf="palette.isVisible">
+            <div 
+            *ngFor="let color of palette.colors" 
+            class="rectangle" 
+            [ngStyle]="{ 'background-color': color.color }"
+            draggable="true"
+            (dragstart)="onDragStart($event, color.color)">
+          </div>
 
-@for (s of section; track s) {
-    <div class="pallete" id="{{s.name}}">
-        <div (click)="toggleVisibility(s)" class="title">{{s.name}}</div>
-        @for (c of s.colors; track c) {
-            <div *ngIf="s.isVisible" class="color">
-                <div 
-                    class="rectangle" 
-                    [ngStyle]="{ 'background-color': c.color }"
-                    draggable="true"
-                    (dragstart)="onDragStart($event, c.color)">
-                </div>
-                {{c.name}}
-            </div>
-        }   
-    </div>
-}
+          </div>
+        </div>
+      </div>
+</main>

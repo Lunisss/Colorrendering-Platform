@@ -1,12 +1,11 @@
 :host {
-  padding-top: 5vh;
   max-height: inherit;
   background-color: white;
   
 }
 
 .btn {
-  width: 4vw; 
+  width: 50%; 
 }
 
 .btn-group-wrapper {
@@ -25,37 +24,41 @@
   color: white;
 }
 .btn-stretched {
-  width: 12vw; 
+  width: 50%; 
   margin-bottom: 1vw; 
-  font-size: 20px;
+  font-size: 13px;
 }
 .btn-stretched-middle {
   width: 60px; 
 }
 .btn-stretched-delete {
   margin-top: 1vw;
-  width: 12vw; 
-  font-size: 20px;
+  width: 8vw; 
 }
 .btn-half {
-  width: 6vw; 
-  font-size: 20px;
+  min-width: 6vw;
 }
+
+.btn-half img {
+  width: 100%;
+}
+
 .btn-half-bottom {
   margin-top: 1vw;
   width: 4vw; 
 }
 
 .btn img {
-  width: 2vw; 
+  width: 1.5vw; 
+  height: 1.5vw;
 }
 .range-container {
   flex-direction: column;
-  width: 13vw;
+  width: 90%;
   display: flex;
   text-align: center;
-  padding-bottom: 20px; 
-  font-size: 20px;
+  padding-bottom: 2vh; 
+  font-size: 15px;
 }
 
 .btn-group-wrapper-bottom {
@@ -65,3 +68,9 @@
   flex-direction: row;
   justify-content: center;
 }
+
+.form-label {
+  margin: 0;
+}
+
+
