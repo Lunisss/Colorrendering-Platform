@@ -1,6 +1,1 @@
-<div
-  class="picture"
-  [ngStyle]="{ 'background-color': pictureColor }"
-  (dragover)="allowDrop($event)"
-  (drop)="onDrop($event)">
-</div>
+<div class="picture"><img *ngIf="imageSrc" [src]="imageSrc" alt="Uploaded Image"/></div>

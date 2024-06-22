@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';  
 import { BrowserModule } from '@angular/platform-browser';
+import { ImageUploadService } from '../image-upload.service';
 
 @Component({
   selector: 'app-picture',
@@ -9,18 +10,14 @@ import { BrowserModule } from '@angular/platform-browser';
   templateUrl: './picture.component.html',
   styleUrl: './picture.component.css'
 })
-export class PictureComponent {
-  pictureColor: string = '#FFFFFF';
+export class PictureComponent implements OnInit {
+  imageSrc: string | ArrayBuffer | null = null;
 
-  allowDrop(event: any) {
-    event.preventDefault();
-    console.log("allowed");
+  constructor(private imageUploadService: ImageUploadService) { }
+
+  ngOnInit(): void {
+    this.imageUploadService.currentImage.subscribe(image => {
+      this.imageSrc = image;
+    });
   }
-
-  onDrop(event: any) {
-    event.preventDefault();
-    const color = event.dataTransfer.getData('text/plain');
-    this.pictureColor = color;
-  }
-
 }

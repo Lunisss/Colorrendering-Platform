@@ -1,6 +1,7 @@
 <div class="btn-group-wrapper">
     <div class="btn-group" role="group" aria-label="Basic outlined example">
-      <button type="button" class="btn btn-outline-primary" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Tooltip on bottom"><img src="../assets/images/upload.png"></button>
+      <button type="button" class="btn btn-outline-primary" (click)="fileInput.click()" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Tooltip on bottom"><img src="../assets/images/upload.png"></button>
+      <input type="file" (change)="onFileSelected($event)" #fileInput style="display:none"/>
       <button type="button" class="btn btn-outline-primary" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Tooltip on bottom"><img src="../assets/images/download.png"></button>
       <button type="button" class="btn btn-outline-primary" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Tooltip on bottom"><img src="../assets/images/imag.png"></button>
     </div>
