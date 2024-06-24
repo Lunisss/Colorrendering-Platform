@@ -20,13 +20,6 @@ export class ColorsComponent implements OnInit {
   ngOnInit(): void {
     this.colorsService.getColours().subscribe((colorsData: Palette[]) => {
       this.colorsData = colorsData;
-      this.colorsData.forEach(palette => {
-        if (palette.colors) { // Check if colors is defined
-          palette.colors.forEach(color => {
-            console.log(`Code: ${color.code}, Name: ${color.name}, Color: ${color.color}`);
-          });
-        }
-      });
     },
     error => {
       console.error('Error fetching palettes:', error);

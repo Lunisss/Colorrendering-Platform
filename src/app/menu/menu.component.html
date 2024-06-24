@@ -1,63 +1,64 @@
-<div class="btn-group-wrapper">
+<div>
+  <div class="btn-group-wrapper">
+      <div class="btn-group" role="group" aria-label="Basic outlined example">
+        <button type="button" class="btn btn-outline-primary" (click)="fileInput.click()" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Tooltip on bottom"><img src="../assets/images/upload.png"></button>
+        <input type="file" (change)="onFileSelected($event)" #fileInput style="display:none"/>
+        <button type="button" class="btn btn-outline-primary" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Tooltip on bottom"><img src="../assets/images/download.png"></button>
+        <button type="button" class="btn btn-outline-primary" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Tooltip on bottom"><img src="../assets/images/imag.png"></button>
+      </div>
+    </div>
+  
+  <div class="btn-group-wrapper">
     <div class="btn-group" role="group" aria-label="Basic outlined example">
-      <button type="button" class="btn btn-outline-primary" (click)="fileInput.click()" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Tooltip on bottom"><img src="../assets/images/upload.png"></button>
-      <input type="file" (change)="onFileSelected($event)" #fileInput style="display:none"/>
-      <button type="button" class="btn btn-outline-primary" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Tooltip on bottom"><img src="../assets/images/download.png"></button>
-      <button type="button" class="btn btn-outline-primary" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Tooltip on bottom"><img src="../assets/images/imag.png"></button>
+      <button type="button" class="btn btn-outline-primary" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Tooltip on bottom"><img src="../assets/images/left.png"></button>
+      <button type="button" class="btn btn-outline-primary" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Tooltip on bottom"><img src="../assets/images/hand (2).png"></button>
+      <button type="button" class="btn btn-outline-primary" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Tooltip on bottom"><img src="../assets/images/right.png"></button>
     </div>
   </div>
-
-<div class="btn-group-wrapper">
-  <div class="btn-group" role="group" aria-label="Basic outlined example">
-    <button type="button" class="btn btn-outline-primary" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Tooltip on bottom"><img src="../assets/images/left.png"></button>
-    <button type="button" class="btn btn-outline-primary" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Tooltip on bottom"><img src="../assets/images/hand (2).png"></button>
-    <button type="button" class="btn btn-outline-primary" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Tooltip on bottom"><img src="../assets/images/right.png"></button>
-  </div>
-</div>
-
-<div class="btn-group-wrapper">
-  <div class="btn-group" role="group" aria-label="Basic outlined example">
-    <button type="button" class="btn btn-outline-primary btn-stretched">Auto Sharpen</button>
-  </div>
-</div>
-
-<div class="btn-group-wrapper">
-  <div class="range-container">
-    <label class="form-label" for="customRange1">Contrast</label>
-      <div data-mdb-range-init class="range">
-        <input type="range" class="form-range" id="customRange1"/>
-      </div>
-  </div>
-</div>
-
-<div class="btn-group-wrapper">
-  <div class="range-container">
-    <label class="form-label" for="customRange2">Brightness</label>
-      <div data-mdb-range-init class="range">
-        <input type="range" class="form-range" id="customRange2"/>
-      </div>
+  
+  <div class="btn-group-wrapper">
+    <div class="btn-group" role="group" aria-label="Basic outlined example">
+      <button type="button" class="btn btn-outline-primary btn-stretched">Auto Sharpen</button>
     </div>
-</div>
-
-<div class="btn-group-wrapper">
-  <div class="btn-group" role="group" aria-label="Basic outlined example">
-    <button type="button" class="btn-half btn-outline-primary btn" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Tooltip on bottom"><img src="../assets/images/star.png"></button>
-    <button type="button" class="btn btn-outline-primary btn-half" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Tooltip on bottom"><img src="../assets/images/pencil.png"></button>
   </div>
 </div>
 
-<div class="btn-group-wrapper">
-  <div class="btn-group" role="group" aria-label="Basic outlined example">
-    <button type="button" class="btn btn-outline-primary btn-half" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Tooltip on bottom">Merge</button>
-    <button type="button" class="btn btn-outline-primary btn-half" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Tooltip on bottom">Split</button>
+
+  <div class="btn-group-wrapper">
+    <div class="range-container">
+      <label class="form-label" for="customRange1">Contrast</label>
+        <div data-mdb-range-init class="range">
+          <input type="range" class="form-range" id="customRange1"/>
+        </div>
+    </div>
+  </div>
+  
+  <div class="btn-group-wrapper">
+    <div class="range-container">
+      <label class="form-label" for="customRange2">Brightness</label>
+        <div data-mdb-range-init class="range">
+          <input type="range" class="form-range" id="customRange2"/>
+        </div>
+      </div>
+  </div>
+
+
+<div>
+  <div class="btn-group-wrapper">
+    <div class="btn-group" role="group" aria-label="Basic outlined example">
+      <button type="button" class="btn-half btn-outline-primary btn" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Tooltip on bottom"><img src="../assets/images/star.png"></button>
+      <button type="button" class="btn btn-outline-primary btn-half" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Tooltip on bottom"><img src="../assets/images/pencil.png"></button>
+    </div>
+  </div>
+  
+  <div class="btn-group-wrapper">
+    <div class="btn-group" role="group" aria-label="Basic outlined example">
+      <button type="button" class="btn btn-outline-primary btn-half" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Tooltip on bottom">Merge</button>
+      <button type="button" class="btn btn-outline-primary btn-half" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Tooltip on bottom">Split</button>
+    </div>
   </div>
 </div>
 
-<div class="btn-group-wrapper">
-  <div class="btn-group" role="group" aria-label="Basic outlined example">
-    <button type="button" class="btn btn-outline-primary btn-stretched-delete">Delete</button>
-  </div>
-</div>
 
 <div class="btn-group-wrapper">
   <div class="btn-group" role="group" aria-label="Basic outlined example">

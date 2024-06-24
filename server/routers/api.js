@@ -21,8 +21,6 @@ mongoose.connect(db2)
             if (!data) {
                 throw new Error('No data found');
             }
-            console.log('Data retrieved from the database:', data);
-            console.log(data[0]);
             res.json(data[0]);
 
         } catch (err) {

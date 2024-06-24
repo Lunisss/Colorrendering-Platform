@@ -1,6 +1,6 @@
 :host {
     overflow-y: scroll;
-    max-height: inherit;
+    max-height: 85vh;
 }
 
 main {
@@ -9,6 +9,7 @@ main {
 .top{
     padding: 1vw;
     position: sticky;
+    height: 8vh;
     top: 0;
     z-index: 2;
     background-color: white;
@@ -20,14 +21,14 @@ input {
     height: 4vh;
 }
 
-.pallete {
-    width: 90%;
-    display: inline-block;
-
+.palette {
+    width: 100%;
+    display: grid;
+    place-items: center;
 }
 
 .title {
-    width: 100%;
+    width: 90%;
     height: 8vh;
     border: 1px solid black;
     background-color: #FEFEFE;
