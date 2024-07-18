@@ -48,24 +48,18 @@ import torchvision
 import numpy as np
 import matplotlib.pyplot as plt
 import cv2
+import json
 
-"""Load image"""
-def load_image (photo_name):
+def load_image(photo_name):
     image = cv2.imread(photo_name)
     image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
     return image
 
-'''#showing raw image
-plt.figure(figsize=(20,20))
-plt.imshow(image)
-plt.axis('off')
-plt.show()
-'''
-
 from segment_anything import sam_model_registry, SamAutomaticMaskGenerator, SamPredictor
-def prepare_environment ():
+
+def prepare_environment():
     sys.path.append("..")
-    sam_checkpoint = "sam_vit_h_4b8939.pth"
+    sam_checkpoint = r"C:\Users\Lunis\Documents\PPG\Colorrendering-Platform\python_code\sam_vit_h_4b8939.pth"
     model_type = "vit_h"
     
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
@@ -74,11 +68,7 @@ def prepare_environment ():
     sam.to(device=device)
     return sam
 
-"""#Automatic mask generation
-To run automatic mask generation, provide a SAM model to the `SamAutomaticMaskGenerator` class. Set the path below to the SAM checkpoint. Running on CUDA and with the default model is recommended.
-"""
-def generate_masks (image,sam):  
-    #mask_generator = SamAutomaticMaskGenerator(sam) #- default, but less percise generation
+def generate_masks(image, sam):  
     mask_generator = SamAutomaticMaskGenerator(
         model=sam,
         points_per_side=32,
@@ -91,10 +81,6 @@ def generate_masks (image,sam):
     masks = mask_generator.generate(image)
     return masks
 
-#print(len(masks)) #number of masks
-#print(masks[0].keys())
-
-"""Set up annotations and their colors:"""
 def show_anns(anns):
     if len(anns) == 0:
         return
@@ -106,12 +92,11 @@ def show_anns(anns):
     img[:,:,3] = 0
     for ann in sorted_anns:
         m = ann['segmentation']
-        color_mask = np.concatenate([np.random.random(3), [0.35]])
+        color_mask = np.concatenate([[0], [0], [0], [0.35]])
         img[m] = color_mask
     ax.imshow(img)
 
-"""Show all the masks overlayed on the image."""
-def show_masks_overlayed (masks,image):
+def show_masks_overlayed(masks, image):
     plt.figure(figsize=(20,20))
     plt.imshow(image)
     show_anns(masks)
@@ -121,8 +106,38 @@ def show_masks_overlayed (masks,image):
 def ai_segmentation(image): #final function - give the filename
     photo = load_image(image)
     sam = prepare_environment()
-    segments = generate_masks(photo,sam)
-    #show_masks_overlayed(segments,photo) #optional to view end result    
+    segments = generate_masks(photo, sam)
+    #show_masks_overlayed(segments, photo) #optional to view end result    
     return segments
 
-#ai_segmentation('photo.png')
+def masks_to_json_compatible(masks):
+    json_compatible_masks = []
+    for mask in masks:
+        json_compatible_mask = {
+            'segmentation': mask['segmentation'].tolist(),
+            'area': mask['area'],
+            'bbox': mask['bbox'],
+            'predicted_iou': mask['predicted_iou'],
+            'stability_score': mask['stability_score'],
+            'crop_box': mask['crop_box']
+        }
+        json_compatible_masks.append(json_compatible_mask)
+    return json_compatible_masks
+
+def save_masks_to_json(masks, filename):
+    json_compatible_masks = masks_to_json_compatible(masks)
+    with open(filename, 'w') as json_file:
+        json.dump(json_compatible_masks, json_file)
+
+# Running the AI segmentation and saving the masks
+def main(image_path, output_json):
+    masks = ai_segmentation(image_path)
+    save_masks_to_json(masks, output_json)
+
+if __name__ == "__main__":
+    image_path = sys.argv[1]
+    output_json = sys.argv[2]
+    main(image_path, output_json)
+
+
+

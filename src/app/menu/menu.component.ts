@@ -1,25 +1,29 @@
 import { Component } from '@angular/core';
 import { ImageUploadService } from '../image-upload.service';
+import { MaskSelectionService } from '../mask-selection.service';
 
 @Component({
   selector: 'app-menu',
   standalone: true,
-  imports: [],
   templateUrl: './menu.component.html',
-  styleUrl: './menu.component.css'
+  styleUrls: ['./menu.component.css'],
 })
 export class MenuComponent {
-
-  constructor(private imageUploadService: ImageUploadService) { }
+  selectingColor: boolean = false;
+  
+  constructor(
+    private imageUploadService: ImageUploadService,
+    private maskSelectionService: MaskSelectionService
+  ) { }
 
   onFileSelected(event: any) {
     const file = event.target.files[0];
     if (file) {
-      const reader = new FileReader();
-      reader.onload = () => {
-        this.imageUploadService.changeImage(reader.result);
-      };
-      reader.readAsDataURL(file);
+      this.imageUploadService.uploadImage(file);
     }
+  }
+
+  openMaskSelection() {
+    this.maskSelectionService.showMaskSelection();
   }
 }

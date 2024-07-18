@@ -299,6 +299,6 @@ export class Solver {
   }
 
   css(filters: number[]): string {
-    return `grayscale(100%) invert(${filters[0] / 100}) sepia(${filters[1] / 100}) saturate(${filters[2] / 100}) hue-rotate(${filters[3] * 3.6}deg) brightness(${filters[4] / 100}) contrast(${filters[5] / 100})`;
+    return `opacity(50%) invert(${filters[0] / 100}) sepia(${filters[1] / 100}) saturate(${filters[2] / 100}) hue-rotate(${filters[3] * 3.6}deg) brightness(${filters[4] / 100}) contrast(${filters[5] / 100})`;
   }
 }

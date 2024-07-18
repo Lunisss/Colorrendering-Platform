@@ -1,0 +1,22 @@
+<div class="container" *ngIf="isVisible" [class.visible]="isVisible">
+
+  <div class="mask-selection" >
+    <table>
+      <tr *ngFor="let mask of masks; let i = index"
+      (mouseover)="hoverMask(mask)"
+      (mouseout)="unhoverMask()">
+      <td><img [src]="mask" alt="Mask"></td>
+      <td>
+        <input type="checkbox" name="mask" [id]="'mask'+ i" (change)="toggleMaskSelection(mask, $event)">
+      </td>
+    </tr>
+  </table>
+</div>
+<div class="buttons" id="top">
+  <button type="button" (click)="deleteSelectedMasks()">Delete Selected</button>
+  <button (click)="keepSelectedMasks()">Keep Selected</button>
+</div>
+<div class="buttons" id="bottom">
+  <button (click)="closeMaskSelection()">Close</button>
+</div>
+</div>

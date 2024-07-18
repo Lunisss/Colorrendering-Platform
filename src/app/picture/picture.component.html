@@ -1,3 +1,11 @@
-<div class="picture" (drop)="onDrop($event)" (dragover)="onDragOver($event)">
-  <img *ngIf="imageSrc" [src]="imageSrc" [style.filter]="filter" alt="Uploaded Image">
+<div class="picture">
+  <div class="image-container">
+    <img src="../../assets/images/loading.gif" alt="loading" *ngIf="imageSrc=='../assets/images/loading.gif'" style="width: 10vw;">
+    <img *ngIf="imageSrc && imageSrc!='../assets/images/loading.gif'" [src]="imageSrc" alt="Uploaded Image">
+    <ng-container *ngIf="filter">
+      <div *ngFor="let mask of masks; let i = index" class="mask-container" [class.highlight]="isHovered(mask)" [class.hide]="(!isHovered(mask) && !filter[i]) || (!isHovered(mask) && filter[i] && !isSelected(mask))">
+        <img [src]="mask"  (drop)="onDrop($event)" (dragover)="onDragOver($event)" [style.filter]="isSelected(mask) ? filter[i] : ''" alt="Mask">
+      </div>
+    </ng-container>
+  </div>
 </div>
