@@ -3,13 +3,12 @@ const router = express.Router();
 const mongoose = require('mongoose');
 const Main = require('../models/schema.js');
 
-const db = "mongodb+srv://kutax:Password@test.watsq98.mongodb.net/Colors?retryWrites=true&w=majority";
-const db2 = "mongodb+srv://Lunis:XfjGpTIHBfmMuFfx@cluster0.9eoyogn.mongodb.net/Colours?retryWrites=true&w=majority&appName=Cluster0"
+const db = "mongodb+srv://Lunis:XfjGpTIHBfmMuFfx@cluster0.9eoyogn.mongodb.net/Colours?retryWrites=true&w=majority&appName=Cluster0"
 
 
 mongoose.Promise = global.Promise;
 
-mongoose.connect(db2)
+mongoose.connect(db)
     .then(() => console.log('Connection successfull'))
     .catch((err) => console.log(err));
 
